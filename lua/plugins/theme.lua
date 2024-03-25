@@ -11,23 +11,23 @@ return {
     { "uloco/bluloco.nvim",        lazy = false,     priority = 1000, dependencies = { "rktjmp/lush.nvim" }, },
     { "EdenEast/nightfox.nvim" },
     {
-    "catppuccin/nvim",
-    lazy = false,
-    name = "catppuccin",
-    priority = 999,
-},
+        "catppuccin/nvim",
+        lazy = false,
+        name = "catppuccin",
+        priority = 999,
+    },
     {
-    "oxfist/night-owl.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-        require("night-owl").setup({
-            bold = true,
-            italics = true,
-            underline = true,
-            undercurl = true,
-            transparent_background = true,
-        })
-    end,
-}
+        "oxfist/night-owl.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("night-owl").setup({
+                bold = true,
+                italics = true,
+                underline = true,
+                undercurl = true,
+                transparent_background = true,
+            })
+        end,
+    }
 }
