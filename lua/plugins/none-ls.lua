@@ -1,9 +1,10 @@
 return {
 	"nvimtools/none-ls.nvim", -- configure formatters & linters
 	lazy = true,
-	-- event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
+	event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
 	dependencies = {
 		"jay-babu/mason-null-ls.nvim",
+         "nvimtools/none-ls-extras.nvim",
 	},
 	config = function()
 		local mason_null_ls = require("mason-null-ls")
@@ -19,6 +20,7 @@ return {
 				"black", -- python formatter
 				"pylint", -- python linter
 				"eslint_d", -- js linter
+                "intelliphense", -- php linter
 			},
 		})
 
@@ -44,7 +46,9 @@ return {
 				formatting.isort,
 				formatting.black,
 				diagnostics.pylint,
-				diagnostics.eslint_d.with({ -- js/ts linter
+				-- diagnostics.phpactor,
+				diagnostics.intelliphense,
+                require("none-ls.diagnostics.eslint_d").with({ -- js/ts linter
 					condition = function(utils)
 						return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
 					end,
